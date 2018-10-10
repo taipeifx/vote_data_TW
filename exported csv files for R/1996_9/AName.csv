@@ -1,0 +1,736 @@
+"""全國",Taiwan
+"""臺北市
+""",Taipei City 
+"""高雄市
+""",Kaohsiung City 
+"""臺北縣
+""",Taipei County 
+"""宜蘭縣
+""",Yilan County 
+"""桃園縣
+""",Taoyuan County 
+"""新竹縣
+""",Hsinchu County 
+"""苗栗縣
+""",Miaoli County 
+"""臺中縣
+""",Taichung County 
+"""彰化縣
+""",Changhua County 
+"""南投縣
+""",Nantou County 
+"""雲林縣
+""",Yunlin County 
+"""嘉義縣
+""",Chiayi County 
+"""臺南縣
+""",Tainan County 
+"""高雄縣
+""",Kaohsiung County 
+"""屏東縣
+""",Pingtung County 
+"""臺東縣
+""",Taitung County 
+"""花蓮縣
+""",Hualien County 
+"""澎湖縣
+""",Wuhu County 
+"""基隆市
+""",Keelung City 
+"""新竹市
+""",Hsinchu City 
+"""臺中市
+""",Taichung City 
+"""嘉義市
+""",Chiayi City 
+"""臺南市
+""",Tainan City 
+"""金門縣
+""",Jinmen County 
+"""連江縣
+""",Lianjiang County 
+"""北投區",Beitou District
+"""士林區",Shilin District
+"""中山區",Zhongshan Area
+"""大同區",Datong District
+"""松山區",Songshan District
+"""信義區",Xinyi District
+"""南港區",Nangang District
+"""內湖區",Neihu District
+"""大安區",Daan District
+"""中正區",Zhongzheng District
+"""萬華區",Wanhua District
+"""文山區",Wenshan District
+"""鹽埕區",Yancheng District
+"""鼓山區",Gushan District
+"""左營區",Zuoying District
+"""楠梓區",Nanxun District
+"""三民區",Sanmin District
+"""新興區",Emerging area
+"""前金區",Former gold district
+"""苓雅區",Yuya District
+"""前鎮區",Former town area
+"""旗津區",Qijin District
+"""小港區",Xiaogang District
+"""板橋市
+""",Banqiao City 
+"""三重市
+""",Mie City 
+"""中和市
+""",Zhonghe City 
+"""永和市
+""",Yonghe City 
+"""新莊市
+""",Xinzhuang City 
+"""新店市
+""",Xindian City 
+"""樹林市
+""",Wood City 
+"""鶯歌鎮
+""",Yingge Town 
+"""三峽鎮
+""",Three Gorges Town 
+"""淡水鎮
+""",Tamsui Town 
+"""汐止市
+""",Yushi City 
+"""瑞芳鎮
+""",Ruifang Town 
+"""土城市
+""",Tucheng 
+"""蘆洲市
+""",Luzhou City 
+"""五股鄉
+""",Wuxiang Township 
+"""泰山鄉
+""",Taishan Township 
+"""林口鄉
+""",Linkou Township 
+"""深坑鄉
+""",Shenkeng Township 
+"""石碇鄉
+""",Shijie Township 
+"""坪林鄉
+""",Pinglin Township 
+"""三芝鄉
+""",Sanzhi Township 
+"""石門鄉
+""",Shimen Township 
+"""八里鄉
+""",Bali Township 
+"""平溪鄉
+""",Pingxi Township 
+"""雙溪鄉
+""",Shuangxi Township 
+"""貢寮鄉
+""",Gongga Township 
+"""金山鄉
+""",Jinshan Township 
+"""萬里鄉
+""",Wanli Township 
+"""烏來鄉
+""",Wulai Township 
+"""宜蘭市
+""",Yilan City 
+"""羅東鎮
+""",Luodong Town 
+"""蘇澳鎮
+""",Suao Town 
+"""頭城鎮
+""",Head town 
+"""礁溪鄉
+""",Jiaoxi Township 
+"""壯圍鄉
+""",Zhuangwei Township 
+"""員山鄉
+""",Yuanshan Township 
+"""冬山鄉
+""",Dongshan Township 
+"""五結鄉
+""",Wujie Township 
+"""三星鄉
+""",Samsung Township 
+"""大同鄉
+""",Datong Township 
+"""南澳鄉
+""",South Australia Township 
+"""桃園市
+""",Taoyuan City 
+"""中壢市
+""",Zhongli City 
+"""八德市
+""",Bade City 
+"""大溪鎮
+""",Daxi Town 
+"""龜山鄉
+""",Guishan Township 
+"""復興鄉
+""",Fuxing Township 
+"""蘆竹鄉
+""",Luzhu Township 
+"""大園鄉
+""",Dayuan Township 
+"""觀音鄉",Guanyin Township
+"""新屋鄉
+""",Xinwu Township 
+"""平鎮市
+""",Pingzhen City 
+"""楊梅鎮
+""",Yangmei Town 
+"""龍潭鄉
+""",Longtan Township 
+"""竹北市
+""",Zhubei 
+"""竹東鎮
+""",Zhudong Town 
+"""新埔鎮
+""",Xinpu Town 
+"""關西鎮
+""",Kansai Town 
+"""湖口鄉
+""",Hukou Township 
+"""新豐鄉
+""",Xinfeng Township 
+"""芎林鄉
+""",Yulin Township 
+"""橫山鄉
+""",Hengshan Township 
+"""北埔鄉
+""",Beipu Township 
+"""寶山鄉
+""",Baoshan Township 
+"""峨眉鄉
+""",Emei Township 
+"""尖石鄉
+""",Jianshi Township 
+"""五峰鄉
+""",Wufeng Township 
+"""苗栗市
+""",Miaoli City 
+"""苑裡鎮
+""",Yuanli Town 
+"""通霄鎮
+""",Tongyu Town 
+"""竹南鎮
+""",Zhunan Town 
+"""頭份鎮
+""",Head town 
+"""後龍鎮
+""",Houlong Town 
+"""卓蘭鎮
+""",Zhuolan Town 
+"""大湖鄉
+""",Dahu Township 
+"""公館鄉
+""",Gongguan Township 
+"""銅鑼鄉
+""",Tonglu Township 
+"""南庄鄉
+""",Nanzhuang Township 
+"""頭屋鄉
+""",Tou Township 
+"""三義鄉
+""",Sanyi Township 
+"""西湖鄉
+""",Xihu Township 
+"""造橋鄉
+""",Bridge township 
+"""三灣鄉
+""",Sanwan Township 
+"""獅潭鄉
+""",Shitan Township 
+"""泰安鄉
+""",Tai'an Township 
+"""豐原市
+""",Fengyuan City 
+"""東勢鎮
+""",Dongshi Town 
+"""大甲鎮
+""",Dajia Town 
+"""清水鎮
+""",Qingshui Town 
+"""沙鹿鎮
+""",Shalu Town 
+"""梧棲鎮
+""",Qiqi Town 
+"""后里鄉
+""",Houlixiang 
+"""神岡鄉
+""",Shengang Township 
+"""潭子鄉
+""",Tanzi Township 
+"""大雅鄉
+""",Daya Township 
+"""新社鄉
+""",Xinshe Township 
+"""石岡鄉
+""",Shigang Township 
+"""外埔鄉
+""",Waipu Township 
+"""大安鄉
+""",Daan Township 
+"""烏日鄉
+""",Wuri Township 
+"""大肚鄉
+""",Dadu Township 
+"""龍井鄉
+""",Longjing Township 
+"""霧峰鄉
+""",Wufeng Township 
+"""太平市
+""",Taiping City 
+"""大里市
+""",Dali City 
+"""和平鄉
+""",Peace township 
+"""彰化市
+""",Changhua City 
+"""鹿港鎮
+""",Lugang Town 
+"""和美鎮
+""",Hemei Town 
+"""線西鄉
+""",Line Xixiang 
+"""伸港鄉
+""",Shengang Township 
+"""福興鄉
+""",Fuxing Township 
+"""秀水鄉",Xiushui Township
+"""花壇鄉
+""",Huatan Township 
+"""芬園鄉
+""",Fenyuan Township 
+"""員林鎮
+""",Lin Linzhen 
+"""溪湖鎮
+""",Xihu Town 
+"""田中鎮
+""",Tanaka Town 
+"""大村鄉
+""",Da Village Township 
+"""埔鹽鄉
+""",Puyan Township 
+"""埔心鄉
+""",Puxin Township 
+"""永靖鄉
+""",Yongjing Township 
+"""社頭鄉
+""",Shetou Township 
+"""二水鄉
+""",Ershui Township 
+"""北斗鎮
+""",Beidou Town 
+"""二林鎮
+""",Erlin Town 
+"""田尾鄉
+""",Tianwei Township 
+"""埤頭鄉
+""",Shantou Township 
+"""芳苑鄉
+""",Fangyuan Township 
+"""大城鄉
+""",Dacheng 
+"""竹塘鄉
+""",Zhutang Township 
+"""溪州鄉
+""",Xizhou Township 
+"""南投市
+""",Nantou City 
+"""埔里鎮
+""",Puli Town 
+"""草屯鎮
+""",Caojing Town 
+"""竹山鎮
+""",Zhushan Town 
+"""集集鎮
+""",Jiji Town 
+"""名間鄉
+""",Mingxiang Township 
+"""鹿谷鄉
+""",Lugu Township 
+"""中寮鄉
+""",Zhongyu Township 
+"""魚池鄉
+""",Yuchi Township 
+"""國姓鄉
+""",Country name 
+"""水里鄉
+""",Shuili Township 
+"""信義鄉
+""",Xinyi Township 
+"""仁愛鄉
+""",Renai Township 
+"""斗六市
+""",Douliu City 
+"""斗南鎮
+""",Dounan Town 
+"""虎尾鎮
+""",Huwei Town 
+"""西螺鎮
+""",Xiluo Town 
+"""土庫鎮
+""",Turku Town 
+"""北港鎮
+""",Beigang Town 
+"""古坑鄉
+""",Gukeng Township 
+"""大埤鄉
+""",Datun Township 
+"""莿桐鄉
+""",Wutong Township 
+"""林內鄉
+""",Linnei Township 
+"""二崙鄉
+""",Erlun Township 
+"""崙背鄉
+""",Lunbei Township 
+"""麥寮鄉
+""",Maixiao Township 
+"""東勢鄉
+""",Dongshi Township 
+"""褒忠鄉
+""",Qi Zhongxiang 
+"""臺西鄉
+""",Taixi Township 
+"""元長鄉
+""",Yuanchang Township 
+"""四湖鄉
+""",Sihu Township 
+"""口湖鄉
+""",Kouhu Township 
+"""水林鄉
+""",Shuilin Township 
+"""太保市
+""",Taibao City 
+"""朴子市
+""",Puzi City 
+"""布袋鎮
+""",Budai Town 
+"""大林鎮
+""",Dalin Town 
+"""民雄鄉
+""",Minxiong Township 
+"""溪口鄉
+""",Xikou Township 
+"""新港鄉
+""",Xingang Township 
+"""六腳鄉
+""",Liujiao Township 
+"""東石鄉
+""",Dongshi Township 
+"""義竹鄉
+""",Yizhu Township 
+"""鹿草鄉
+""",Lucao Township 
+"""水上鄉
+""",Water township 
+"""中埔鄉
+""",Zhongpu Township 
+"""竹崎鄉
+""",Zhuqi Township 
+"""義竹鄉
+""",Yizhu Township 
+"""梅山鄉
+""",Meishan Township 
+"""番路鄉
+""",Fanlu Township 
+"""大埔鄉
+""",Tai Po Township 
+"""阿里山鄉",Alishan Township
+"""新營市
+""",Xinying City 
+"""鹽水鎮
+""",Salt water town 
+"""白河鎮
+""",Baihe Town 
+"""柳營鄉
+""",Liuying Township 
+"""後壁鄉
+""",Houbi Township 
+"""東山鄉
+""",Dongshan Township 
+"""麻豆鎮
+""",Madou Town 
+"""下營鄉
+""",Xiaying Township 
+"""六甲鄉
+""",Liujia Township 
+"""官田鄉
+""",Guantian Township 
+"""大內鄉
+""",Da Nei Xiang 
+"""佳里鎮
+""",Jiali Town 
+"""學甲鎮
+""",Xuejia Town 
+"""西港鄉
+""",Xigang Township 
+"""七股鄉
+""",Qixiang Township 
+"""將軍鄉
+""",General army 
+"""北門鄉
+""",Beimen Township 
+"""新化鎮
+""",Xinhua Town 
+"""善化鎮
+""",Shanhua Town 
+"""新市鄉
+""",Xinshi Township 
+"""安定鄉
+""",Anding Township 
+"""山上鄉
+""",Shanshang Township 
+"""玉井鄉
+""",Yujing Township 
+"""楠西鄉
+""",Nanxi Township 
+"""南化鄉
+""",Nanhua Township 
+"""左鎮鄉
+""",Zuozhen Township 
+"""仁德鄉
+""",Rende Township 
+"""歸仁鄉
+""",Guiren Township 
+"""關廟鄉
+""",Guanmiao Township 
+"""龍崎鄉
+""",Longqixiang Township 
+"""永康市
+""",Yongkang City 
+"""鳳山市
+""",Fengshan City 
+"""林園鄉
+""",Linyuan Township 
+"""大寮鄉
+""",Datun Township 
+"""大樹鄉
+""",Dashu Township 
+"""大社鄉
+""",Dashe Township 
+"""仁武鄉
+""",Renwu Township 
+"""鳥松鄉
+""",Bird pine township 
+"""岡山鎮
+""",Okayama Town 
+"""橋頭鄉
+""",Qiaotou Township 
+"""燕巢鄉
+""",Yanchao Township 
+"""田寮鄉
+""",Tian Yi Township 
+"""阿蓮鄉
+""",Alian Township 
+"""路竹鄉
+""",Luzhu Township 
+"""湖內鄉
+""",Lake Township 
+"""茄萣鄉
+""",Township 
+"""永安鄉
+""",Yongan Township 
+"""彌陀鄉
+""",Mito Township 
+"""梓官鄉
+""",Yuguan Township 
+"""旗山鎮
+""",Qishan Town 
+"""美濃鎮
+""",Mino Town 
+"""六龜鄉
+""",Liugui Township 
+"""甲仙鄉
+""",Jiaxian Township 
+"""杉林鄉
+""",Shanlin Township 
+"""內門鄉
+""",Inner gate township 
+"""茂林鄉
+""",Maolin Township 
+"""桃源鄉
+""",Taoyuan Township 
+"""三民鄉
+""",Sanmin Township 
+"""屏東市
+""",Pingtung City 
+"""潮州鎮
+""",Chaozhou Town 
+"""東港鎮
+""",Donggang Town 
+"""恆春鎮
+""",Hengchun Town 
+"""萬丹鄉
+""",Wandan Township 
+"""長治鄉
+""",Changzhi Township 
+"""麟洛鄉
+""",Linluo Township 
+"""九如鄉
+""",Jiuru Township 
+"""里港鄉
+""",Ligang Township 
+"""鹽埔鄉
+""",Yanpu Township 
+"""高樹鄉
+""",Gaoshu Township 
+"""萬巒鄉
+""",Wanxiang Township 
+"""內埔鄉
+""",Neipu Township 
+"""竹田鄉
+""",Zhutian Township 
+"""新埤鄉
+""",Xinyi Township 
+"""枋寮鄉
+""",枋寮? 
+"""新園鄉
+""",Xinyuan Township 
+"""崁頂鄉
+""",Yuding Township 
+"""林邊鄉
+""",Linbian Township 
+"""南州鄉
+""",Nanzhou Township 
+"""佳冬鄉
+""",Jiadong Township 
+"""琉球鄉
+""",Ryukyu Township 
+"""車城鄉
+""",Car and urban 
+"""滿州鄉
+""",Manzhou Township 
+"""枋山鄉
+""",Lushan Township 
+"""三地門鄉
+""",Sandimen Township 
+"""霧臺鄉
+""",Wutai Township 
+"""瑪家鄉
+""",Majia Township 
+"""泰武鄉
+""",Taiwu Township 
+"""來義鄉
+""",Laiyixiang 
+"""春日鄉
+""",Chunri Township 
+"""獅子鄉
+""",Lion Township 
+"""牡丹鄉
+""",Peony Township 
+"""臺東市
+""",Taitung City 
+"""成功鎮
+""",Successful town 
+"""關山鎮
+""",Guanshan Town 
+"""卑南鄉
+""",Beinan Township 
+"""鹿野鄉
+""",Luye Township 
+"""池上鄉
+""",Chishang Township 
+"""東河鄉
+""",Donghe Township 
+"""長濱鄉
+""",Changbin Township 
+"""太麻里鄉",Taima Lixiang
+"""大武鄉
+""",Dawu Township 
+"""綠島鄉
+""",Green Island Township 
+"""海端鄉
+""",Haiduan Township 
+"""延平鄉
+""",Yanping Township 
+"""金峰鄉
+""",Jinfeng Township 
+"""達仁鄉
+""",Daren Township 
+"""蘭嶼鄉
+""",Lanyu Township 
+"""花蓮市
+""",Hualien City 
+"""鳳林鎮
+""",Fenglin Town 
+"""玉里鎮
+""",Yuli Town 
+"""新城鄉
+""",New urban and rural 
+"""吉安鄉
+""",Ji'an Township 
+"""壽豐鄉
+""",Shoufeng Township 
+"""光復鄉
+""",Guangfu Township 
+"""豐濱鄉
+""",Fengbin Township 
+"""瑞穗鄉
+""",Ruisui Township 
+"""富里鄉
+""",Fuli Township 
+"""秀林鄉",Xiulin Township
+"""萬榮鄉
+""",Wanrong Township 
+"""卓溪鄉
+""",Zhuoxi Township 
+"""馬公市
+""",Magong City 
+"""湖西鄉
+""",Huxi Township 
+"""白沙鄉
+""",Baisha Township 
+"""西嶼鄉
+""",Xiyu Township 
+"""望安鄉
+""",Wangan Township 
+"""七美鄉
+""",Qimei Township 
+"""中正區",Zhongzheng District
+"""七堵區",Seven blocks
+"""暖暖區",Warm zone
+"""仁愛區",Renai District
+"""中山區",Zhongshan Area
+"""安樂區",Anle District
+"""信義區",Xinyi District
+"""東區",Eastern District
+"""北區",North District
+"""香山區",Xiangshan District
+"""中區",Central District
+"""東區",Eastern District
+"""南區",South area
+"""西區",West District
+"""北區",North District
+"""西屯區",Xitun District
+"""南屯區",Nanxun District
+"""北屯區",Beibei District
+"""東區",Eastern District
+"""西區",West District
+"""東區",Eastern District
+"""南區",South area
+"""中區",Central District
+"""安平區",Anping District
+"""西區",West District
+"""北區",North District
+"""安南區",Annan District
+"""金城鎮
+""",Golden town 
+"""金寧鄉
+""",Jinning Township 
+"""金湖鎮
+""",Jinhu Town 
+"""金沙鎮
+""",Jinsha Town 
+"""烈嶼鄉
+""",Lieyu Township 
+"""烏坵鄉
+""",Wuqiu Township 
+"""南竿鄉
+""",Nanxun Township 
+"""北竿鄉
+""",Beijiao Township 
+"""莒光鄉
+""",Shuguang Township 
+"""東引鄉
+""",Dongxiang Township 

@@ -1,0 +1,11 @@
+CanNum,CanName,Sex,Age,CurInc,PParty,RMate
+1,"宋楚瑜 James Soong",1,62,N,Independent," "
+1,"張昭雄 Chang Chau-hsiung",1,60,N,Independent,"Y"
+2,"連戰 Lien Chan ",1,68,N,Kuo.Min.Tang," "
+2,"蕭萬長 Vincent Siew",1,62,N,Kuo.Min.Tang,"Y"
+3,"李敖 Li Ao ",1,63,N,New.Party," "
+3,"馮滬祥 Elmer Fung",1,64,N,New.Party,"Y"
+4,"許信良 Hsu Hsin-liang",1,65,N,Independent," "
+4,"朱惠良 Josephine Chu",2,66,N,Independent,"Y"
+5,"陳水扁 Chen Shui-bian",1,53,N,Dem.Prog.Party," "
+5,"呂秀蓮 Annette Lu",2,60,N,Dem.Prog.Party,"Y"

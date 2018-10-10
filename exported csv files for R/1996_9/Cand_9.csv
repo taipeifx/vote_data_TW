@@ -1,0 +1,9 @@
+CanNum,CanName,Sex,Age,CurInc,PParty,RMate
+1,"陳履安 Chen Li-an",1,62,N,Independent," "
+1,"王清峰 Wang Ching-feng",2,60,N,Independent,"Y"
+2,"李登輝 Lee Teng-hui",1,68,Y,Kuo.Min.Tang," "
+2,"連戰 Lien Chan",1,62,N,Kuo.Min.Tang,"Y"
+3,"彭明敏 Peng Ming-min",1,63,N,Dem.Prog.Party," "
+3,"謝長廷 Frank Hsieh",1,64,N,Dem.Prog.Party,"Y"
+4,"林洋港 Lin Yang-kang",1,65,N,New.Party," "
+4,"郝柏村 Hau Pei-tsun",1,66,N,New.Party,"Y"
