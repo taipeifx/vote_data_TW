@@ -1,4 +1,4 @@
-# Chart App 1 Select Areas based on Year
+# Chart App 1 Select Regions based on Year
 
 # This is a Shiny web application. You can run the application by clicking
 # the 'Run App' button above.
@@ -29,12 +29,12 @@ ui <-  navbarPage(
   tabPanel('Charts',
            fluidRow(
              column(3,
-                    h3('Interactive Chart'),
-                    br(),
+                    h3('Interactive Chart:'),
+                    h4('Compare Regions By Year'),
                     br(),
                     br(),
                     selectizeInput("city",
-                                   h4("Select Area"),
+                                   h4("Select Region"),
                                    choices = unique(partylines$ANameE),
                                    selected = c('Taipei City'), #,'Taichung City','Tainan City'),
                                    multiple = TRUE
