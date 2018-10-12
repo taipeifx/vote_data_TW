@@ -56,7 +56,7 @@ ui <-  navbarPage(
 
             #Candidate Info
              column(10, h3("Candidate Info"),
-                    textOutput("text1"))
+                    tableOutput("table"))
            ))
 )
 
@@ -138,7 +138,7 @@ server <- function(input, output) {
     return (b)
   })
   
-  output$text1 <- renderText({  
+  output$table <- renderTable({
     print(sprintf("%s", toppings())) # (candinfo[input$year][[1]]) #debug purposes
     #print (unique(partylines$Year))
   })
