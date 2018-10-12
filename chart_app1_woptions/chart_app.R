@@ -1,4 +1,5 @@
-#
+# Chart App 1 Select Areas based on Year
+
 # This is a Shiny web application. You can run the application by clicking
 # the 'Run App' button above.
 #
@@ -16,8 +17,8 @@ library(googleVis)
 library(readr)
 
 #data for shiny app
-partylines = read_csv('partylines1.txt')
-
+partylines = read_csv('partylines_updated.txt')
+candinfo = read.csv('candinfo.txt',check.names=FALSE)
 Category = c('Party')
 
 # Define UI for histogram
@@ -51,7 +52,12 @@ ui <-  navbarPage(
                                 selected = '2006'
                     )
              ),
-             column(9, htmlOutput('charta'))
+             column(9, htmlOutput('charta')),
+             
+             
+             #Candidate Info
+             column(12, h3("Candidate Info"),
+                       textOutput("text1"))
            ))
 )
 
@@ -69,7 +75,7 @@ server <- function(input, output) {
   })
   
   output$charta = renderGvis({
-    print (names(v_chart())[-1]) #debug purposes
+    #print (names(v_chart())[-1]) #debug purposes
     g1 = gvisBarChart(v_chart(), "ANameE", names(v_chart())[-1], #bar chart (data, ANameE, party names)
                       options = list(colors= "['#00FF00','#0000EE', '#FFFF00', '#ffa500', '#EE3B3B']",
                                      legend="right",
@@ -77,7 +83,21 @@ server <- function(input, output) {
                                      width=700,height=400))
     g1
   })
+  
+  #Candidate Info  
+  toppings <- reactive({
+    a = input$year
+    b = candinfo[a][[1]]
+    return (b)
+  })
+
+  output$text1 <- renderText({  
+    print(sprintf("%s", toppings())) # (candinfo[input$year][[1]]) #debug purposes
+    #print (unique(partylines$Year))
+    })
+
 }
+
 # Run the application 
 shinyApp(ui = ui, server = server)
 

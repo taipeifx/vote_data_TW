@@ -1,4 +1,5 @@
-#
+# Chart App 1 Select Areas based on Year
+
 # This is a Shiny web application. You can run the application by clicking
 # the 'Run App' button above.
 #
@@ -17,6 +18,7 @@ library(readr)
 
 #data for shiny app
 partylines = read_csv('partylines_updated.txt')
+candinfo = read.csv('candinfo.txt',check.names=FALSE)
 
 # Define UI for histogram
 ui <-  navbarPage(
@@ -50,7 +52,11 @@ ui <-  navbarPage(
                                 selected = '2006'
                     )
              ),
-             column(9, htmlOutput('charta'))
+             column(9, htmlOutput('charta')),
+
+            #Candidate Info
+             column(10, h3("Candidate Info"),
+                    textOutput("text1"))
            ))
 )
 
@@ -124,6 +130,19 @@ server <- function(input, output) {
                                        
     g1
   })
+  
+  #Candidate Info  
+  toppings <- reactive({
+    a = input$year
+    b = candinfo[a][[1]]
+    return (b)
+  })
+  
+  output$text1 <- renderText({  
+    print(sprintf("%s", toppings())) # (candinfo[input$year][[1]]) #debug purposes
+    #print (unique(partylines$Year))
+  })
+  
 }
 # Run the application 
 shinyApp(ui = ui, server = server)
