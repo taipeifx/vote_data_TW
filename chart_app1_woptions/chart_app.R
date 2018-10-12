@@ -10,8 +10,9 @@
 library(shiny)
 library(shinythemes)
 library(dplyr)
+library(reshape2)#dcast
 library(googleVis)
-library(reshape2)
+
 library(readr)
 
 #data for shiny app
@@ -59,18 +60,18 @@ ui <-  navbarPage(
 # Define server logic for histogram
 server <- function(input, output) {
 
-  v_chart = reactive({
-    tt = filter(partylines, Year == input$year & ANameE %in% input$city) %>%
+  v_chart = reactive({ #v_chart returns tt
+    tt = filter(partylines, Year == input$year & ANameE %in% input$city) %>% #based on selection Year, ANameE, Party + Votes
     select(ANameE, Party, Votes)
-    ttname= names(tt) 
-    tt= tt %>% dcast(as.formula(paste(ttname[1:2], collapse ='~')), value.var = ttname[3]  )
+    ttname= names(tt)   #ttname returns column headers
+    tt= tt %>% dcast(as.formula(paste(ttname[1:2], collapse ='~')), value.var = ttname[3]  ) # 1 row with each party as a column header
     return(tt) 
   })
   
   output$charta = renderGvis({
     print (names(v_chart())[-1]) #debug purposes
-    g1 = gvisBarChart(v_chart(), "ANameE", names(v_chart())[-1], 
-                      options = list(colors= "['#EE3B3B', '#0000EE','#66CD00']",
+    g1 = gvisBarChart(v_chart(), "ANameE", names(v_chart())[-1], #bar chart (data, ANameE, party names)
+                      options = list(colors= "['#00FF00','#0000EE', '#FFFF00', '#ffa500', '#EE3B3B']",
                                      legend="right",
                                      bar="{groupWidth:'90%'}",gvis.editor="Make a change?",
                                      width=700,height=400))
@@ -81,3 +82,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 
 #THANKS!!
+
+#change colors
+#if select year, show total votes? candidates input$year = 2006 etc 
+
