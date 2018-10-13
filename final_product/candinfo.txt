@@ -1,0 +1,6 @@
+1996,2000,2004,2008,2012,2016
+"[1 彭明敏 Peng Ming-min,謝長廷 Frank Hsieh: Dem.Prog.Party]","[1 陳水扁 Chen Shui-bian, 呂秀蓮 Annette Lu: Dem.Prog.Party]","[1 陳水扁 Chen Shui-bian, 呂秀蓮 Annette Lu: Dem.Prog.Party]","[1 謝長廷 Frank Hsieh,蘇貞昌 Su Tseng-chang: Dem.Prog.Party]","[1 蔡英文 Tsai Ing-wen,蘇嘉全 Su Jia-chyuan: Dem.Prog.Party]","[1 蔡英文 Tsai Ing-wen,陳建仁 Chen Chien-jen: Dem.Prog.Party]"
+"[2 李登輝 Lee Teng-hui,連戰 Lien Chan: Kuo.Min.Tang]","[2 連戰 Lien Chan ,蕭萬長 Vincent Siew: Kuo.Min.Tang]","[2 連戰 Lien Chan, 宋楚瑜 James Soong: Kuo.Min.Tang]","[2 馬英九 Ma Ying-jeou,蕭萬長 Vincent Siew: Kuo.Min.Tang]","[2 馬英九 Ma Ying-jeou,吳敦義 Wu Den-yih: Kuo.Min.Tang]","[2 朱立倫 Eric Chu,王如玄 Wang Ju-hsuan: Kuo.Min.Tang]"
+"[3 林洋港 Lin Yang-kang,郝柏村 Hau Pei-tsun: New.Party]","[3 李敖 Li Ao , Elmer Fung: New.Party]",,,"[3 宋楚瑜 James Soong,林瑞雄 Lin Ruey-shiung: Peoples.First.Party]","[3 宋楚瑜 James Soong,徐欣瑩 Hsu Hsin-ying: Peoples.First.Party]"
+"[4 陳履安 Chen Li-an,王清峰 Wang Ching-feng: Independent]","[4 宋楚瑜 James Soong,張昭雄 Chang Chau-hsiung: Independent]",,,,
+,"[5 Hsu信良 Hsu Hsin-liang,朱惠良 Josephine Chu: Independent2]",,,,

@@ -67,10 +67,34 @@ ui <-  navbarPage(
 server <- function(input, output) {
 
   v_chart = reactive({ #v_chart returns tt
-    tt = filter(partylines, Year == input$year & ANameE %in% input$city) %>% #based on selection Year, ANameE, Party + Votes
+    
+tt = filter(partylines, Year == 2000 & ANameE %in% 'Taipei City') %>% #based on selection Year, ANameE, Party + Votes
     select(ANameE, Party, Votes)
     ttname= names(tt)   #ttname returns column headers
-    tt= tt %>% dcast(as.formula(paste(ttname[1:2], collapse ='~')), value.var = ttname[3]  ) # 1 row with each party as a column header
+    tt = tt %>% dcast(as.formula(paste(ttname[1:2], collapse ='~')), value.var = ttname[3]  ) # 1 row with each party as a column header
+
+
+    tt$Mean = mean(as.numeric(tt[1,][-1]))
+    last = length(v_chart())-2
+    print (last)
+    g1 = gvisComboChart(v_chart(), "ANameE", names(v_chart())[-1], #bar chart (data, ANameE, party names)
+                        options = list(seriesType = "bars",                            
+                                       series=sprintf("{%s:{type:'line', 
+                                       lineWidth: 10,
+                                       color:'black'}}", last), #last column of tt as mean
+                                       colors= "['#00e600','#0000EE', '#FFFF00', '#ffa500', '#EE3B3B']",
+                                       legend="right",
+                                       bar="{groupWidth:'90%'}",gvis.editor="Make a change?",
+                                       width=800,height=500))}
+    
+    
+    last = length(tt)-1
+    CC <- gvisComboChart(CityPopularity, xvar = "City", yvar = c("Mean", "Popularity"), 
+                         options = list(seriesType = "bars", width = 450, height = 300, title = "City Popularity", 
+                                        series = "{1:{type:\"line\"}}"))
+    
+    
+    plot(CC)    
     return(tt) 
   })
   
