@@ -100,8 +100,8 @@ pl2 = partylines
 pl2 = filter(pl2, ANameE != "National", ANameE != "Taichung County", ANameE != "Tainan County", ANameE != "Kaohsiung County")
 pl2[pl2$ANameE == "Taipei County",][1] = "New Taipei County"
 pl2[pl2$ANameE == "Jinmen County",][1] = "Kinmen"  
-
-    mpdf = filter(pl2, Year == 1996, Party == 'KMT') %>% # input from tabPanel('Map',
+print(a$ANameE)
+    a = filter(pl2, Year == 1996, Party == 'KMT') %>% # input from tabPanel('Map',
       select(ANameE, Value = Perc) %>% arrange(.$ANameE)
     b = filter(pl2, Year == 2016, Party == 'DPP') %>% # input from tabPanel('Map',
       select(ANameE, Value = Perc)%>% arrange(.$ANameE)
@@ -126,9 +126,24 @@ pl2 = filter(pl2, ANameE != "National", ANameE != "Taichung County", ANameE != "
 # 1 Taipei City      21.7
 # 2 Kaohsiung City   23.8
 
+#x <- mapdata()$ratio #from mapdata = reactive({
+#mpdf$ratio[rnk]
+print (mpdf$ANameE)
+print (tw$NAME_2)
+
 #    City Value
 #    1 Changhua County  55.9
 #    2     Chiayi City  58.3    
+
+#    [1] "Changhua County"  "Chiayi City"      "Chiayi County"    "Hsinchu City"     "Hsinchu County"   "Hualien County"   "Jinmen County"    "Kaohsiung City"  
+#    [9] "Keelung City"     "Lianjiang County" "Miaoli County"    "Nantou County"    "Penghu County"    "Pingtung County"  "Taichung City"    "Tainan City"     
+#    [17] "Taipei City"      "Taipei County"    "Taitung County"   "Taoyuan County"   "Yilan County"     "Yunlin County"   
+#    > print (tw$NAME_2)
+#    [1] "Kinmen"  7                  "Lienkiang (Matsu Islands)"10 "Hsinchu City"    4          "Kaohsiung"     8            "New Taipei City"           "Taichung"                 
+#    [7] "Tainan"                    "Taipei"                    "Taoyuan"                   "Changhua"                  "Chiayi City"               "Chiayi County"            
+#    [13] "Hsinchu County"            "Hualien"                   "Keelung" 9                  "Miaoli"                    "Nantou"                    "Penghu"                   
+#    [19] "Pingtung"                  "Taitung"                   "Yilan"                     "Yulin"      
+
 ############################################################################## END OF CALCULATION SCRATCH  
 
 output$statc = renderLeaflet({

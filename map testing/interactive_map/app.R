@@ -9,15 +9,16 @@
 #
 
 library(shiny)
+library(shinythemes)
 library(leaflet)
 library(dplyr) 
 library(tidyr)
 library(readr)
 tw <- readRDS("TWN_adm2.rds")
 partylines <- read_csv('partylines_updated.txt')
-pl2 = partylines 
-pl2 = filter(pl2, ANameE != "National", ANameE != "Taichung County", ANameE != "Tainan County", ANameE != "Kaohsiung County")
-pl2[pl2$ANameE == "New Taipei City",][1] = "Taipei County" 
+pl2 = partylines  #mapdata = reactive
+pl2 = filter(pl2, ANameE != "National", ANameE != "Taichung County", ANameE != "Tainan County", ANameE != "Kaohsiung County") #mapdata = reactive
+pl2[pl2$ANameE == "New Taipei City",][1] = "Taipei County" #mapdata = reactive
 
 ########################################################## UI
 ui <- navbarPage(
@@ -44,6 +45,7 @@ ui <- navbarPage(
              column(9, leafletOutput('statc'))
              
            ))
+  ###################### end MAPS tabPanel #############################  
 )
 
 ############################################ SERVER
@@ -81,25 +83,46 @@ server <- function(input, output) {
         select(ANameE, Value = PercAV) %>% unique(.) %>% arrange(.$ANameE)
     }
     
-    mpdf$ratio= (mpdf$Value-min(mpdf$Value))/(max(mpdf$Value)-min(mpdf$Value)) #some range from 0 to 1
-    
-    mpdf  
+    #mpdf$ratio= (mpdf$Value-min(mpdf$Value))/(max(mpdf$Value)-min(mpdf$Value)) #some range from 0 to 1
+    mpdf 
   })  
   
   output$statc = renderLeaflet({
     print(mapdata())
-    x <- mapdata()$ratio #from mapdata = reactive({
+#################################################### MAP CALCULATIONS/INPUT    
+    #rerank mpdf according to order of rds file district names
+    rnk = c(7,10,4,8,18,15, 
+            16,17,20,1,2,3,
+            5,6,9,11,12,13,
+            14,19,21,22)  
+
+    pal <- colorBin("YlOrRd", domain = mapdata()$Value[rnk]) #color scheme and shade values
     
-    rnk = c(9,10,4,7,13,16,17,18,20,1,2,3,5,6,8,11,12,14,15,19,21,22)
+    labels = sprintf( #mouseover labels
+      "<strong>%s</strong><br/>%g%%",
+      tw$NAME_2, mapdata()$Value[rnk]
+    ) %>% lapply(htmltools::HTML)
+##################################################### PLOT MAP
     
-    x <- x[rnk] #rerank mpdf according to order of rds file district names .... 
-    
-    fillColor <- colorRampPalette(c('white', 'darkblue'))(length(x))[rank(x)]
-    fillColor
-    leaflet(data = tw) %>% addTiles() %>% setView(lng = 120.9605, lat = 23.6978, zoom = 7) %>%
-      addPolygons(fillColor = fillColor, stroke = FALSE, fillOpacity = .6) #color filled based on ratio
+    # https://rstudio.github.io/leaflet/choropleths.html
+    leaflet(data = tw) %>% addProviderTiles(providers$Esri.WorldStreetMap) %>% setView(lng = 120.9605, lat = 23.6978, zoom = 7) %>%
+      addPolygons(
+      
+      #fill colors according to rnk order & outline districs 
+      fillColor = ~pal(mapdata()$Value[rnk]), weight = 2, opacity = 1,
+      color = "white", dashArray = "3", fillOpacity = 0.7,
+      
+      #highlight on mouseover
+      highlight = highlightOptions(weight = 5, color = "#666", dashArray = "", fillOpacity = 0.7, bringToFront = TRUE),
+      
+      #labels on mouseover
+      label = labels, 
+      labelOptions = labelOptions(style = list("font-weight" = "normal", padding = "3px 8px"), textsize = "15px", direction = "auto")) %>% 
+      
+      #add minimap 
+      addMiniMap(tiles = providers$Esri.WorldStreetMap, zoomLevelOffset = -4, width = 300, height = 300, position = 'bottomleft', toggleDisplay = TRUE)
   })
-  
+  ###################################################### end map
   
 }
 
