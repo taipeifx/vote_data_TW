@@ -121,36 +121,14 @@ ui <-  navbarPage(
                                 h4('By Year:'),
                                 choices = unique(partylines$Year),
                                 selected = '1996')),
-             column(9, leafletOutput("statc",height = 600))
+             column(9,  #dashboardPage(  dashboardHeader(disable = T),
+                         #               dashboardSidebar(disable = T),
+                          #              dashboardBody(
+               leafletOutput("statc",height = 600))
              )
              
-           ),
+           )
   ###################### end MAPS tabPanel #############################  
-  ############################################################# About 
-  tabPanel('Project Info',
-           fluidRow(
-             column(12,dashboardPage(dashboardHeader(disable = T),
-                                     dashboardSidebar(disable = T),
-                                     dashboardBody(
-                    h2('New York City Data Science Academy'),
-                    h3('Fall Cohort 2018'),
-                    h4('Raw Data from'),
-                    tags$div(class = 'header', checked = NA,
-                             tags$a(href = 'https://data.gov.tw/','https://data.gov.tw/')),
-                    h4('Explanation on Data from'),
-                    tags$div(class = 'header', checked = NA,
-                             tags$a(href = 'https://github.com/MISNUK/CECDataSet/blob/master/RawData_Format.md','MISNUK GitHub' )),
-                    h4('Created by'), 
-                    tags$div(class = "header", checked = NA,
-                             tags$p("Daniel Chen : dchen@taipeifx.com"),
-                             tags$div(class = "header", checked = NA,
-                                      tags$a(href= "https://github.com/taipeifx/vote_data_TW","TaipeiFX GitHub")),
-                             tags$div(class = "header", checked = NA,
-                                      tags$a(href= "https://nycdsa.com","NYCDSA Blog"))
-                             ))
-                    ))
-             ))
-  ############################################################# End About   
   
 )
 ###################################################################################################### End Define UI
