@@ -19,6 +19,7 @@ library(readr)
 library(tidyr)
 library(leaflet)
 library(shinydashboard)
+library(markdown)
 ##########################data for shiny app
 #for chart apps
 partylines = read_csv('partylines_updated.txt')
@@ -126,12 +127,20 @@ ui <-  navbarPage(
              
            ),
   ###################### end MAPS tabPanel #############################  
+  ############################################################# Stats Panel 
+  tabPanel('Stats',
+           fluidRow(
+             column(12, includeHTML("Taiwan Vote Project in R Shiny.html"),
+                    br())
+           )
+           
+  ),
   ############################################################# About 
   tabPanel('Project Info',
            fluidRow(
              column(12,dashboardPage(dashboardHeader(disable = T),
                                      dashboardSidebar(disable = T),
-                                     dashboardBody(
+                                     dashboardBody(br(),br(),br(),br(),br(),
                     h2('New York City Data Science Academy'),
                     h3('Fall Cohort 2018'),
                     h4('Raw Data from'),
@@ -231,7 +240,7 @@ server <- function(input, output) {
   })
   
   output$table <- renderTable({
-    print(sprintf("%s", toppings())) #(candinfo[input$year][[1]]) #debug purposes
+    sprintf("%s", toppings()) #(candinfo[input$year][[1]]) #debug purposes
     #print (unique(partylines$Year))
   })
   ###################### CHART APP 1 SERVER SELECTIONS END ############################# 

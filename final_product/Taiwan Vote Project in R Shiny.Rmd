@@ -1,0 +1,177 @@
+---
+title: "Taiwan Vote Project in R Shiny"
+author: "Daniel Chen NYC Data Science Academy"
+output: html_document
+---
+
+  For my first project I decided to do an analysis on Taiwan presidential election statistics for the six elections that have taken place since Taiwan 
+held the first election in 1996.
+
+  The raw data I collected from 'https://data.gov.tw/','https://data.gov.tw/' contained 5 csv files for each year, the files were named elbase, elcand,
+elctks, elpaty, and elprof. They each contain specific information regarding each election, from district codes and candidate information to ballot totals
+and voting statistics. The files came without column names and were only decipherable by finding the key from GitHub user MISNUK at https://github.com/MISNUK/CECDataSet/blob/master/RawData_Format.md . 
+
+I used mySQL and R to clean and combine the data to readable tables, and then turned the data into chart, maps, and statistical information.
+
+All my work is stored at the GitHub address https://github.com/taipeifx/vote_data_TW . 
+
+                                      
+## Part 1: t-tests
+
+All of the following statistical analysis is done on Perc, the percentage of votes that each political party received by district and by year.
+I will focus on the two main political parties in Taiwan: KuoMinTang (KMT) and the Democratic Progressive Party (DPP).
+
+First of all we can take a look at the percentage of votes each party received nationwide:
+```{r, warning = FALSE}
+library('psych')
+library('readr')
+partylines = read_csv('partylines_updated.txt')
+# ANameE (National, District Names), Year (1994, 2000, 2004,2008,2012,2016), Votes(for a certain party), Party(KMT,DPP), TotalVote(sum of votes for all parties in a district), Perc(% of the vote received), TotalPop(), PercIB(% Invalid Ballots), PercAV(% of Eligible voters that actually voted)
+
+#Please have a look:
+head(partylines)
+```
+
+A look at the percentages:
+```{r, warning = FALSE}
+nat = partylines[partylines$ANameE == "National",][c(-3,-5,-7,-8,-9)]  #select National
+nat = nat[(nat$Party == "DPP" | nat$Party == "KMT"),]
+describe.by(nat[c(-1,-2)], nat$Party)
+```
+The mean is 41.97% for the DPP vote across 6 elections, with a standard deviation of 11.93. 
+The mean is higher at 44.33% for the KMT vote across 6 elections, standard deviation of 14.10.
+
+I then performed a Two Sample t-test (below) to see if the average vote was the same for both political parties or if the difference was statistically significant.
+The results came back with a p-value of 0.7607, which is insufficient to reject the null hypothesis: Over the years the average vote for both parties have been similar.
+```{r, warning = FALSE}
+t.test(nat[nat$Party == "KMT",][4][[1]], nat[nat$Party == "DPP",][4][[1]])
+```
+
+If we forgo the national average and use the voting information by the major districts, we can see which years the vote was statistically significant.
+The only year the votes were insufficient to reject the null hypothesis (difference in means is equal to zero) was 2004.
+```{r, warning = FALSE}
+loc = partylines[partylines$ANameE != "National",]
+t.test(loc[loc$Year == "2004" & loc$Party == "KMT",][6][[1]], loc[loc$Year == "2004" & loc$Party == "DPP",][6][[1]]) #p-value = 0.0002489
+```
+Looking at the charts we can see that in the year 2004 the DPP and KMT each held 50.11% and 49.890% of the vote, respectively. 
+
+## Part 2: Correlation Plots
+Next I looked at each party individually and the correlation between the different district-wide variables. 
+```{r, warning = FALSE}
+library(corrplot)
+loc = partylines[partylines$ANameE != "National",]
+kmt = loc[loc$Party=="KMT",]
+corrplot(cor(kmt[c(-1,-4)]), order="hclust")
+```
+There seems to be a negative correlation between Year and PercAV, meaning that there is a decreasing amount of people actually voting!
+It seems logical that there is a correlation between votes, totalvote, and totalpop. The more people there are, the more votes there are. 
+
+For DPP there seems to be more positive correlation between the variables as there are more blue circles in the chart, especially in regards to the correlation of other values to Perc (percent of votes recieved).  
+```{r, warning = FALSE}
+dpp = loc[loc$Party=="DPP",]
+corrplot(cor(dpp[c(-1,-4)]), order="hclust")
+```
+
+## Part 3: Box Plots
+Next I looked at side-by-side boxplots of all the election data for districts that voted for KMT. 
+```{r, warning = FALSE}
+library(ggplot2)
+par(mfrow=c(1,1))
+ggplot(kmt, aes(x = kmt$ANameE, y = kmt$Perc)) +
+  geom_boxplot() + theme(plot.subtitle = element_text(vjust = 1), 
+                         plot.caption = element_text(vjust = 1), 
+                         axis.line = element_line(colour = "blue4", 
+                                                  linetype = "solid"), axis.ticks = 
+                           element_line(colour = "gray46"), 
+                         axis.title = element_text(size = 13), 
+                         axis.text.x = element_text(angle = 90), 
+                         plot.title = element_text(size = 15), 
+                         plot.background = element_rect(fill = "aliceblue")) +
+  labs(title = "Boxplot of Districts for 6 Elections", 
+  x = "District Name", y = "Percentage of Votes for KMT %")
+```
+
+and performed a Bartlett test of homogeneity of variances and a One-Way ANOVA test to assess the equality of means of two or more groups:
+```{r, warning = FALSE}
+bartlett.test(kmt$Perc~kmt$ANameE) #p-value = 0.7864
+summary(aov(kmt$Perc~kmt$ANameE)) 
+```
+The p-value for the ANOVA is 1, which means we have insufficient evidence to conclude that the percent vote of districts differ in any significant way. 
+The Bartlett test confirmed that the variances are equal across groups (the districts that voted KMT). 
+```{r, warning = FALSE}
+par(mfrow=c(2,2))
+plot(aov(kmt$Perc~kmt$ANameE)) 
+```
+For the DPP the boxplot looks as such:
+```{r, warning = FALSE}
+par(mfrow=c(1,1))
+ggplot(kmt, aes(x = dpp$ANameE, y = dpp$Perc)) +
+  geom_boxplot() + theme(plot.subtitle = element_text(vjust = 1), 
+                         plot.caption = element_text(vjust = 1), 
+                         axis.line = element_line(colour = "blue4", 
+                                                  linetype = "solid"), axis.ticks = 
+                           element_line(colour = "gray46"), 
+                         axis.title = element_text(size = 13), 
+                         axis.text.x = element_text(angle = 90), 
+                         plot.title = element_text(size = 15), 
+                         plot.background = element_rect(fill = "lightgreen")) +
+  labs(title = "Boxplot of Districts for 6 Elections", 
+  x = "District Name", y = "Percentage of Votes for DPP %")
+
+#the boxplots do look less orderly, so I performed a Bartlett test and a One-Way ANOVA test again:
+bartlett.test(dpp$Perc~dpp$ANameE) #p-value = 0.2114
+summary(aov(dpp$Perc~dpp$ANameE)) 
+```
+The ANOVA test came back with a p-value of 0.334, which although less, is still insufficient to conclude that the percent vote of districts differ in any significant way. 
+The p-value for the Bartlett test is 0.2114 which confirms that the variances are equal across the % of people in districts that voted for the DPP. 
+```{r, warning = FALSE}
+par(mfrow=c(2,2))
+plot(aov(dpp$Perc~dpp$ANameE)) 
+```
+
+## Part 4: Chi-Squared test and Chi-Squared Residuals Plot
+
+Finally, I did the Chi-squared test which evaluates whether there is a significant association between the categories of two variables (district and year):
+    #Null hypothesis (H0): the row and the column variables of the contingency table are independent.
+    #Alternative hypothesis (H1): row and column variables are dependent
+```{r, warning = FALSE}
+library(tidyr)
+kmtchisqdata = kmt[c(-3,-4,-5,-7,-8,-9)] 
+kmtchisqdata = spread(data = kmtchisqdata, key = ANameE, value = Perc)
+#Next, because some districts were renamed in 2012, we need to fill in some missing data:
+kmtchisqdata[10][5:6,]= kmtchisqdata[9][5:6,]
+kmtchisqdata[15][1:4,]= kmtchisqdata[23][1:4,]
+kmtchisqdata[23][5:6,]= kmtchisqdata[15][5:6,]
+kmtchisqdata[19][5:6,]= kmtchisqdata[18][5:6,]
+kmtchisqdata[21][5:6,]= kmtchisqdata[20][5:6,]
+kmtchisqdata = kmtchisqdata[-23] #Taipei County renamed to New Taipei City
+
+chisq = chisq.test(kmtchisqdata[-1])
+chisq
+```
+With a p-value < 2.2e-16, we can reject the null hypothesis and conclude that votes by district and votes by year are dependent.
+```{r, warning = FALSE}
+library(corrplot)
+par(mfrow=c(1,1))
+corrplot(chisq$residuals, is.cor = FALSE)
+```
+
+Here are the results of the Chi-squared test for the DPP: 
+```{r, warning = FALSE}
+dppchisqdata = dpp[c(-3,-4,-5,-7,-8,-9)] 
+dppchisqdata = spread(data = dppchisqdata, key = ANameE, value = Perc)
+dppchisqdata[10][5:6,]= dppchisqdata[9][5:6,]
+dppchisqdata[15][1:4,]= dppchisqdata[23][1:4,]
+dppchisqdata[23][5:6,]= dppchisqdata[15][5:6,]
+dppchisqdata[19][5:6,]= dppchisqdata[18][5:6,]
+dppchisqdata[21][5:6,]= dppchisqdata[20][5:6,]
+dppchisqdata = dppchisqdata[-23] 
+
+chisq2 = chisq.test(dppchisqdata[-1])
+chisq2
+
+#With a p-value < 2.2e-16, we can reject the null hypothesis and conclude that votes by district and votes by year are dependent.
+par(mfrow=c(1,1))
+corrplot(chisq2$residuals, is.cor = FALSE)
+
+```
