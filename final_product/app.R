@@ -23,7 +23,7 @@ library(markdown)
 ##########################data for shiny app
 #for chart apps
 partylines = read_csv('partylines_updated.txt')
-candinfo = read.csv('candinfo.txt',check.names=FALSE)
+candinfo = read.csv('candinfo2.txt',check.names=FALSE)
 
 #for interactive maps
 tw <- readRDS("TWN_adm2.rds")

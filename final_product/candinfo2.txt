@@ -1,0 +1,6 @@
+1996,2000,2004,2008,2012,2016
+"[1 Peng Ming-min, Frank Hsieh: Dem.Prog.Party]","[1 Chen Shui-bian, Annette Lu: Dem.Prog.Party]","[1 Chen Shui-bian, Annette Lu: Dem.Prog.Party]","[1 Frank Hsieh, Su Tseng-chang: Dem.Prog.Party]","[1 Tsai Ing-wen, Su Jia-chyuan: Dem.Prog.Party]","[1 Tsai Ing-wen, Chen Chien-jen: Dem.Prog.Party]"
+"[2 Lee Teng-hui, Lien Chan: Kuo.Min.Tang]","[2 Lien Chan , Vincent Siew: Kuo.Min.Tang]","[2 Lien Chan, James Soong: Kuo.Min.Tang]","[2 Ma Ying-jeou, Vincent Siew: Kuo.Min.Tang]","[2 Ma Ying-jeou,Wu Den-yih: Kuo.Min.Tang]","[2 Eric Chu,Wang Ju-hsuan: Kuo.Min.Tang]"
+"[3 Lin Yang-kang, Hau Pei-tsun: New.Party]","[3 Li Ao , Elmer Fung: New.Party]",,,"[3 James Soong, Lin Ruey-shiung: Peoples.First.Party]","[3 James Soong, Hsu Hsin-ying: Peoples.First.Party]"
+"[4 Chen Li-an, Wang Ching-feng: Independent]","[4 James Soong, Chang Chau-hsiung: Independent]",,,,
+,"[5 Hsu Hsin-liang, Josephine Chu: Independent2]",,,,

@@ -1,0 +1,13 @@
+name: twvoteprojectshinyr
+title: twvoteprojectshinyr
+username:
+account: taipeifx
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 516292
+bundleId: 1644962
+url: https://taipeifx.shinyapps.io/twvoteprojectshinyr/
+when: 1539661977.321
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app_first_ver.R|candinfo.txt|Taiwan Vote Project in R Shiny.Rmd
